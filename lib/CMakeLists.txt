@@ -26,6 +26,10 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND lte_channels_sources
+    doppler_base.cc
+    jakes_doppler.cpp
+    cubic_spline_gaussian.cpp
+    rayleigh_channel_impl.cc
 )
 
 set(lte_channels_sources "${lte_channels_sources}" PARENT_SCOPE)

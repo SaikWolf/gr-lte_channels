@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<block>
+  <name>Rayleigh Channel</name>
+  <key>lte_channels_rayleigh_channel</key>
+  <category>[LTE Channels]</category>
+  <import>import lte_channels</import>
+  <make>lte_channels.rayleigh_channel($samp_rate, $max_dop, $path_count, $delays, $weights, $dop_spec, $dop_taps, $norm, $pnorm, $seed)</make>
+
+
+  <param>
+    <name>Sample Rate</name>
+    <key>samp_rate</key>
+    <value>samp_rate</value>
+    <type>float</type>
+    <hide>part</hide>
+  </param>
+  <param>
+    <name>Maximum Doppler</name>
+    <key>max_dop</key>
+    <value>70</value>
+    <type>float</type>
+    <hide>none</hide>
+  </param>
+  <param>
+    <name>Path Count</name>
+    <key>path_count</key>
+    <value>9</value>
+    <type>int</type>
+    <hide>none</hide>
+  </param>
+  <param>
+    <name>Delays</name>
+    <key>delays</key>
+    <value></value>
+    <type>float_vector</type>
+    <hide>part</hide>
+  </param>
+  <param>
+    <name>Weights (dB)</name>
+    <key>weights</key>
+    <value></value>
+    <type>float_vector</type>
+    <hide>part</hide>
+  </param>
+  <param>
+    <name>Doppler Spectrum</name>
+    <key>dop_spec</key>
+    <value>0</value>
+    <type>enum</type>
+    <hide>none</hide>
+    <option>
+      <name>Jakes</name>
+      <key>0</key>
+    </option>
+  </param>
+  <param>
+    <name>Doppler Spectrum Tap Count</name>
+    <key>dop_taps</key>
+    <value>64</value>
+    <type>int</type>
+    <hide>none</hide>
+  </param>
+  <param>
+    <name>Normalize</name>
+    <key>norm</key>
+    <value>True</value>
+    <type>enum</type>
+    <hide>none</hide>
+    <option>
+      <name>No</name>
+      <key>False</key>
+    </option>
+    <option>
+      <name>Yes</name>
+      <key>True</key>
+    </option>
+  </param>
+  <param>
+    <name>Phase Norm Lead Path</name>
+    <key>pnorm</key>
+    <value>True</value>
+    <type>enum</type>
+    <hide>none</hide>
+    <option>
+      <name>No</name>
+      <key>False</key>
+    </option>
+    <option>
+      <name>Yes</name>
+      <key>True</key>
+    </option>
+  </param>
+  <param>
+    <name>Seed</name>
+    <key>seed</key>
+    <value>-1</value>
+    <type>int</type>
+    <hide>none</hide>
+  </param>
+
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>complex</type>
+  </source>
+
+  <doc>
+LTE EPA: delays: [0.,30e-9,70e-9,90e-9,110e-9,190e-9,410e-9]
+         weights:[0.,-1.,-2.,-3.,-8.,-17.2,-20.8]
+LTE EVA: delays: [0.,30e-9,150e-9,310e-9,370e-9,710e-9,1090e-9,1730e-9,2510e-9]
+         weights:[0.,-1.5,-1.4,-3.6,-.6,-9.1,-7.,-12,-16.9]
+LTE ETU: delays: [0,50e-9,120e-9,200e-9,230e-9,500e-9,1600e-9,2300e-9,5000e-9]
+         weight: [-1.,-1,-1,0.,0.,0.,-3.,-5.,-7.]
+LTE Max Doppler: [5,70,200,300]
+  </doc>
+</block>

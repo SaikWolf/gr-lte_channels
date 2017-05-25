@@ -22,5 +22,6 @@
 ########################################################################
 install(FILES
     api.h
-    DESTINATION include/lte_channels
+    doppler_base.h
+    rayleigh_channel.h DESTINATION include/lte_channels
 )

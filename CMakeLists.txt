@@ -69,7 +69,7 @@ set(Boost_ADDITIONAL_VERSIONS
     "1.60.0" "1.60" "1.61.0" "1.61" "1.62.0" "1.62" "1.63.0" "1.63" "1.64.0" "1.64"
     "1.65.0" "1.65" "1.66.0" "1.66" "1.67.0" "1.67" "1.68.0" "1.68" "1.69.0" "1.69"
 )
-find_package(Boost "1.35" COMPONENTS filesystem system)
+find_package(Boost "1.35" COMPONENTS filesystem system random)
 
 if(NOT Boost_FOUND)
     message(FATAL_ERROR "Boost required to compile lte_channels")
@@ -122,7 +122,7 @@ find_package(Doxygen)
 # components required to the list of GR_REQUIRED_COMPONENTS (in all
 # caps such as FILTER or FFT) and change the version to the minimum
 # API compatible version required.
-set(GR_REQUIRED_COMPONENTS RUNTIME)
+set(GR_REQUIRED_COMPONENTS RUNTIME FILTER FFT)
 find_package(Gnuradio "3.7.2" REQUIRED)
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 include(GrVersion)
