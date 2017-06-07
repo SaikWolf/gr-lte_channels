@@ -9,13 +9,13 @@ namespace gr{
     : d_delta(delta),
       d_seed(seed)
     {
-
+      d_rd = new boost::random_device();
       //std::cout << "CSG: constructing a cubic spline\n";
       d_taps = std::vector<float>(taps.begin(), taps.end());
       if(d_seed < 0){
-        d_seed = d_rd();
+        d_seed = (*d_rd)();
       }
-
+      delete d_rd;
       d_rng = new gr::random(d_seed, 0, 1);
       //std::cout << "CSG: using seed "<<d_seed<<std::endl;
 

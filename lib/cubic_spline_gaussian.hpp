@@ -24,7 +24,7 @@ namespace gr{
     class Cubic_Spline_Gaussian
     {
      private:
-      boost::random_device    d_rd;
+      boost::random_device   *d_rd;
       gr::random             *d_rng;
 
       std::vector<float>      d_taps;
