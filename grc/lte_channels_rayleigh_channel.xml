@@ -2,7 +2,7 @@
 <block>
   <name>Rayleigh Channel</name>
   <key>lte_channels_rayleigh_channel</key>
-  <category>[LTE Channels]</category>
+  <category>[SaikWolf]/LTE Channels</category>
   <import>import lte_channels</import>
   <make>lte_channels.rayleigh_channel($samp_rate, $max_dop, $path_count, $delays, $weights, $dop_spec, $dop_taps, $norm, $pnorm, $seed)</make>
 
